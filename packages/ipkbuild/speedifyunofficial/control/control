@@ -7,5 +7,5 @@ SourceName: speedifyunofficial
 License: BSD
 Installed-Size: 1024
 Maintainer: 0talal.mash0@gmail.com
-Depends: ar, xz, xz-utils, tar, luci-compat, libcap-bin, lighttpd-mod-proxy
+Depends: ar, xz, xz-utils, tar, luci-compat, libcap-bin, curl, wget-ssl, nginx
 Description: Unofficial Speedify Installer

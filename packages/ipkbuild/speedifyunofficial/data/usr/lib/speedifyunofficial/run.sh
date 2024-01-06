@@ -15,9 +15,10 @@ run_speedify (){
    cd /usr/share/speedify || exit 1
    sh DisableRpFilter.sh
    mkdir -p logs
-   nice -n -20 capsh --drop=cap_sys_nice -- -c './speedify -d logs &'
+   nice -n -20 /usr/sbin/capsh --drop=cap_sys_nice --shell=/bin/sh -- -c './speedify -d logs &'
    sleep 2
    ./speedify_cli startupconnect on > /dev/null
+   nginx -c /usr/lib/speedifyunofficial/nginx.conf 2>&1 &
 }
 
 parse_versions(){
@@ -71,24 +72,23 @@ installall(){
    fi
 
    echo "Installing GNU C Library"
+   echo "Removing cache if it exists at /tmp/spddw"
    rm /tmp/spddw -r
    mkdir /tmp/spddw
    cd /tmp/spddw
-   wget -c $LIBC6
+   wget -q -c $LIBC6
    ar x *
-   tar -xvf data.tar.xz
-   cp lib usr / -rP
+   tar -xf data.tar.xz -C /
    rm /tmp/spddw/* -r
-   wget -c $LIBGCC
+   wget -q -c $LIBGCC
    ar x *
-   tar -xvf data.tar.xz
-   cp lib usr / -rP
+   tar -xf data.tar.xz -C /
    rm /tmp/spddw/* -r
 
    echo "Downloading Speedify..."
-   wget -P /tmp/spddw/speedify/ "$DWURL"
+   wget -q -P /tmp/spddw/speedify/ "$DWURL"
    echo "Downloading Speedify UI..."
-   wget -P /tmp/spddw/speedifyui/ "$UIDWURL"
+   wget -q -P /tmp/spddw/speedifyui/ "$UIDWURL"
    echo "Extracting Speedify..."
    cd /tmp/spddw/speedify/
    ar x *.deb

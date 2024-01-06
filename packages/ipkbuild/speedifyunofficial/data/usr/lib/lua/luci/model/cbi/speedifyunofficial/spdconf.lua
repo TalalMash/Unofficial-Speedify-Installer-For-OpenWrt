@@ -1,6 +1,6 @@
 config = Map("speedifyunofficial")
 
-view = config:section(NamedSection,"Setup", "config",  translate("Speedify Configuration"), translate("Check the log tab for installation progress."))
+view = config:section(NamedSection,"Setup", "config",  translate("Speedify Configuration"), translate("Check the log tab for installation progress.<br><a href='/spdui/index.html?wsPort=9331'>Speedify Web UI Link</a>"))
 enabled = view:option(Flag, "enabled", "Enable", "Enables Speedify on device startup."); view.optional=false; view.rmempty = false;
 apt = view:option(Value, "apt", "Debian Repository URL:", "Default address last tested on Q1 2024."); view.optional=false; view.rmempty = false;
 auto = view:option(Flag, "autoupdate", "Update on boot:", "Update Speedify before starting."); view.optional=false; view.rmempty = false;
@@ -9,12 +9,12 @@ rst = view:option(Button, "_reset", "Trigger Reset", "Reset and restart Speedify
 genlog = view:option(Button, "_genlog", "Download Logs & Config", "Downloads Speedify log files and OpenWRT configuration/log files.")
 
 function upd.write()
-  luci.sys.call("echo 'Log Reset & Speedify Update/Install' > /tmp/speedifyunofficialig.log && sh /usr/lib/speedifyunofficial/run.sh update >> /tmp/speedifyunofficialig.log &")
+  luci.sys.call("echo 'Log Reset & Speedify Update/Install' > /tmp/speedifyunofficial.log && sh /usr/lib/speedifyunofficial/run.sh update >> /tmp/speedifyunofficial.log 2>&1 &")
   luci.http.redirect("/cgi-bin/luci/admin/vpn/spdconf/logs")
 end
 
 function rst.write()
-  luci.sys.call("echo 'Log & Speedify Reset' > /tmp/speedifyunofficialig.log && killall -KILL speedify && rm -rf /usr/share/speedify/logs/* && sh /usr/lib/speedifyunofficial/run.sh >> /tmp/speedifyunofficialig.log &")
+  luci.sys.call("echo 'Log & Speedify Reset' > /tmp/speedifyunofficial.log && killall -KILL speedify && rm -rf /usr/share/speedify/logs/* && sh /usr/lib/speedifyunofficial/run.sh >> /tmp/speedifyunofficial.log 2>&1 &")
   luci.http.redirect("/cgi-bin/luci/admin/vpn/spdconf/logs")
 end
 

@@ -8,25 +8,25 @@ stop = view:option(Button, "_stop", "Halt Speedify", "Force stop Speedify.")
 uninstall = view:option(Button, "_remove", "Uninstall Speedify", "Remove all files.")
 
 function dmpver.write()
-  luci.sys.call("echo 'Log Reset' > /tmp/speedifyunofficialig.log")
-  luci.sys.call("sh /usr/lib/speedifyunofficial/run.sh list-versions >> /tmp/speedifyunofficialig.log")
+  luci.sys.call("echo 'Log Reset' > /tmp/speedifyunofficial.log")
+  luci.sys.call("sh /usr/lib/speedifyunofficial/run.sh list-versions >> /tmp/speedifyunofficial.log")
   luci.http.redirect("/cgi-bin/luci/admin/vpn/spdconf/logs")
 end
 
 function restart.write()
   luci.sys.call("/etc/init.d/speedifyunofficial restart &")
-  luci.sys.call("echo 'Done Restart' > /tmp/speedifyunofficialig.log")
+  luci.sys.call("echo 'Done Restart' > /tmp/speedifyunofficial.log")
 end
 
 function stop.write()
   luci.sys.call("/etc/init.d/speedifyunofficial stop &")
-  luci.sys.call("echo 'Done Stop' > /tmp/speedifyunofficialig.log")
+  luci.sys.call("echo 'Done Stop' > /tmp/speedifyunofficial.log")
 end
 
 function uninstall.write()
  luci.sys.call("/etc/init.d/speedifyunofficial stop")
  luci.sys.call("rm -rf /usr/share/speedify/* /usr/share/speedifyui/* /www/spdui/*")
- luci.sys.call("echo 'Speedify was manually uninstalled...' | tee /www/spdui/index.html | tee /tmp/speedifyunofficialig.log &")
+ luci.sys.call("echo 'Speedify was manually uninstalled...' | tee /www/spdui/index.html | tee /tmp/speedifyunofficial.log &")
  luci.http.redirect("/cgi-bin/luci/admin/vpn/spdconf/logs")
 end
 
