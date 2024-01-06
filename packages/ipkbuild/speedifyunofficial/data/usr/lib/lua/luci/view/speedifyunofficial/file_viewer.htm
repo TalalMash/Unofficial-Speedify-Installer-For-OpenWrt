@@ -1,0 +1,9 @@
+<%+header%>
+<h2 name="title"><%=title%></h2>
+<h5 name="description">(Auto refresh enabled)</h5>
+<div id="content_fileviewer">
+<meta http-equiv="refresh" content="10">
+<textarea style="width: 100%" readonly="readonly" wrap="off" rows="<%=content:cmatch("\n")+1%>" id="content_id"><%=content:pcdata()%></textarea>
+</div>
+<%+footer%>
+

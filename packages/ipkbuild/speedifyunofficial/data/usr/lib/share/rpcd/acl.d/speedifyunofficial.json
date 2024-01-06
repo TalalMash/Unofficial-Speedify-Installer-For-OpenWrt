@@ -1,0 +1,17 @@
+{
+	"speedifyunofficial": {
+		"description": "Grant UCI access for speedifyunofficial",
+		"read": {
+			"uci": [ "speedifyunofficial" ],
+			"file": {
+				"/usr/share/speedify/speedify_cli": [ "exec" ]
+			}
+		},
+		"write": {
+			"uci": [ "speedifyunofficial" ],
+			"file": {
+				"/usr/share/speedify/speedify_cli": [ "exec" ]
+			}
+		}
+	}
+}

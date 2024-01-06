@@ -1,0 +1,11 @@
+Package: speedifyunofficial
+Version: 1.0
+Architecture: all
+Section: luci
+SourceDateEpoch: 1680488509
+SourceName: speedifyunofficial
+License: BSD
+Installed-Size: 1024
+Maintainer: 0talal.mash0@gmail.com
+Depends: ar, xz, xz-utils, tar, luci-compat, libcap-bin, lighttpd-mod-proxy
+Description: Unofficial Speedify Installer

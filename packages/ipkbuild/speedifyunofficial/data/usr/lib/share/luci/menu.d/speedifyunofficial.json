@@ -1,0 +1,13 @@
+{
+	"admin/vpn/spdconf/bypass": {
+		"title": "Custom Bypasses",
+		"order": 3,
+		"action": {
+			"type": "view",
+			"path": "speedifyunoffical/bypass"
+		},
+		"depends": {
+			"acl": [ "speedifyunoffical" ]
+		}
+	}
+}
