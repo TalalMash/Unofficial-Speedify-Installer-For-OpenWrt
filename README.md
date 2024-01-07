@@ -16,4 +16,4 @@
 
 Download the file from the releases section and follow the GIF:
 
-![](quicky.gif)
+![](quicky.mp4)
