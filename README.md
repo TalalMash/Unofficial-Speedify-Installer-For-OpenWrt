@@ -17,5 +17,5 @@
 Download the file from the releases section and follow the video:
 
 
-https://github.com/TalalMash/Unofficial-Speedify-Installer-For-OpenWrt/assets/96490382/11142b57-0c76-4778-9463-93807c791744
+https://github.com/TalalMash/Unofficial-Speedify-Installer-For-OpenWrt/assets/96490382/0c49dea6-e07f-4db8-8813-b6786d552da9
 
