@@ -14,6 +14,8 @@
 - GL.iNet Slate AX & Flint 4.4.6 official firmware
 
 
-Download the file from the releases section and follow the GIF:
+Download the file from the releases section and follow the video:
 
-![](quicky.mp4)
+
+https://github.com/TalalMash/Unofficial-Speedify-Installer-For-OpenWrt/assets/96490382/11142b57-0c76-4778-9463-93807c791744
+
