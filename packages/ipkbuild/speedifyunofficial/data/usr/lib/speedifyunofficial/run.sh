@@ -123,6 +123,7 @@ installall(){
    uci set network.speedify.ipaddr='10.202.0.2'
    uci set network.speedify.netmask='255.255.255.0'
    uci set network.speedify.gateway='10.202.0.1'
+   uci add_list network.speedify.dns='10.202.0.1'
    uci add_list firewall.cfg03dc81.network='speedify'
    uci set network.speedify6=interface
    uci set network.speedify6.proto='dhcpv6'
