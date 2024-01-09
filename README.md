@@ -12,6 +12,7 @@
 
 - Official OpenWrt PC (23.05.2)
 - GL.iNet Slate AX & Flint 4.4.6 official firmware
+- GL.iNet Beryl AX 4.4.6 official firmware (user report) 
 
 
 Download the file from the releases section and follow the video:
