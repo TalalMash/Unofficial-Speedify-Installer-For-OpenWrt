@@ -12,8 +12,11 @@
 
 - Official OpenWrt PC (23.05.2)
 - GL.iNet Slate AX & Flint 4.4.6 official firmware
-- GL.iNet Beryl AX 4.4.6 official firmware (user report)
-- GL.iNet Spitz AX 4.0 official firmware (user report)
+  
+*User reports:*
+- GL.iNet Beryl AX 4.4.6 official firmware 
+- GL.iNet Spitz AX 4.0 official firmware 
+- Banana Pi BPI-R3 OpenWrt 23.05 
 
 
 Download the file from the releases section and follow the video:
