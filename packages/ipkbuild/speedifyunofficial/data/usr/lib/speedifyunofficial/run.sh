@@ -8,6 +8,7 @@ PKGS=/tmp/spdpkgs
 config_load speedifyunofficial
 
 run_speedify (){
+   killall -KILL speedify
    if [ $(uci get speedifyunofficial.Setup.enabled) == 0 ]; then
         exit 0
    fi
@@ -162,7 +163,6 @@ LIBGCC="https://deb.debian.org/debian/pool/main/g/gcc-8/libgcc1_8.3.0-6_$ARCH.de
 if [ "$ACTION" = "update" ]; then
   parse_apt_url
   installall
-  killall -KILL speedify
   run_speedify
 else
   if [ "$ACTION" = "stopkill" ]; then
@@ -186,18 +186,15 @@ else
     echo "Repo version: $DWVER"
     if [ "$DWVER" -gt "$CURRVER" ]; then
         installall
-        killall -KILL speedify
         run_speedify
         echo "Update finished, running."
         exit 0
     else
         echo "Up to date, running."
-        killall -KILL speedify
         run_speedify
         exit 0
     fi
   else
-    killall -KILL speedify
     run_speedify
     echo "Running"
  fi
