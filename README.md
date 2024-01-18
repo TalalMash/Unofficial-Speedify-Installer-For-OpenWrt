@@ -18,7 +18,7 @@
 - GL.iNet Beryl AX 4.4.6 official firmware 
 - GL.iNet Spitz AX 4.0 official firmware 
 - Banana Pi BPI-R3 OpenWrt 23.05 
-
+- Nano Pi R6S FriendlyWrt 23.05.X
 
 Download the file from the releases section and follow the video:
 
