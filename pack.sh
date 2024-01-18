@@ -1,5 +1,7 @@
 #!/bin/bash
 
+VERSION="1.1"
+
 pushd packages/ipkbuild/speedifyunofficial/control/
 rm ../control.tar.gz
 tar --numeric-owner --group=0 --owner=0 -czf ../control.tar.gz ./*
@@ -11,6 +13,6 @@ tar --numeric-owner --group=0 --owner=0 -czf ../data.tar.gz ./*
 popd
 
 pushd packages/ipkbuild/speedifyunofficial
-rm ../../speedifyunofficial_1.0_all.ipk
-tar --numeric-owner --group=0 --owner=0 -czf ../../speedifyunofficial_1.0_all.ipk ./debian-binary ./data.tar.gz ./control.tar.gz 
+rm ../../speedifyunofficial*
+tar --numeric-owner --group=0 --owner=0 -czf ../../speedifyunofficial_${VERSION}_all.ipk ./debian-binary ./data.tar.gz ./control.tar.gz 
 popd

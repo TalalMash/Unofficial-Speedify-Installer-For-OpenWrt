@@ -4,6 +4,8 @@
 
 ACTION="${1:-start}"
 PKGS=/tmp/spdpkgs
+SED="busybox sed"
+AWK="busybox awk"
 
 config_load speedifyunofficial
 
@@ -24,7 +26,7 @@ run_speedify (){
 
 parse_versions(){
    APT=$(config_get Setup apt)
-   APT=$(echo $APT | sed -e 's/\/$//')
+   APT=$(echo $APT | $SED -e 's/\/$//')
    echo Repository URL:$APT
    aptURL="$APT$SPDDIR"
    echo Repository Ubuntu packages URL:$aptURL
@@ -35,20 +37,20 @@ parse_versions(){
 
 parse_apt_url(){
    APT=$(config_get Setup apt)
-   APT=$(echo $APT | sed -e 's/\/$//')
+   APT=$(echo $APT | $SED -e 's/\/$//')
    echo Repository URL:$APT
    aptURL="$APT$SPDDIR"
    echo Repository Ubuntu packages URL:$aptURL
    curl -o $PKGS $aptURL
 
-   DWVER=$(awk '/Version:/{gsub("Version: ", "");print;exit}' $PKGS)
+   DWVER=$($AWK '/Version:/{gsub("Version: ", "");print;exit}' $PKGS)
    echo Latest Version:$DWVER
 
-   SPDDW=$(awk '/Filename/{gsub("Filename: ", "");print;exit}' $PKGS)
+   SPDDW=$($AWK '/Filename/{gsub("Filename: ", "");print;exit}' $PKGS)
    export DWURL=$APT/$SPDDW
    echo Speedify package URL:$DWURL
 
-   UIDW=$(sed -n '/speedifyui/{nnnnnnnn;p;q}' $PKGS | awk '/Filename/{gsub("Filename: ", "");print;exit}')
+   UIDW=$($SED -n '/speedifyui/{nnnnnnnn;p;q}' $PKGS | $AWK '/Filename/{gsub("Filename: ", "");print;exit}')
    export UIDWURL=$APT/$UIDW
    echo Speedify UI package URL:$UIDWURL
 
@@ -56,10 +58,10 @@ parse_apt_url(){
         echo "Version override is set!"
         DWVER=$(config_get Setup verovd)
         echo "Set to $DWVER"
-        SPDDW=$(sed -n '/'"$DWVER"'/{nn;p;q}' $PKGS | awk '/Filename/{gsub("Filename: ", "");print;exit}')
+        SPDDW=$($SED -n '/'"$DWVER"'/{nn;p;q}' $PKGS | $AWK '/Filename/{gsub("Filename: ", "");print;exit}')
         export DWURL=$APT/$SPDDW
         echo Speedify package URL:$DWURL
-        UIDW=$(sed -n '/'"$DWVER"'/{nn;p;q}' $PKGS | awk '/Filename/{gsub("Filename: ", "");print;exit}' | sed 's/speedify/speedifyui/g')
+        UIDW=$($SED -n '/'"$DWVER"'/{nn;p;q}' $PKGS | $AWK '/Filename/{gsub("Filename: ", "");print;exit}' | $SED 's/speedify/speedifyui/g')
         export UIDWURL=$APT/$UIDW
         echo Speedify UI package URL:$UIDWURL
    fi
@@ -180,8 +182,8 @@ else
     echo "Update on boot enabled."
     echo "Checking for updates..."
     parse_apt_url
-    CURRVER=$(config_get Setup version | awk -F '|' -v 'OFS=|' '{ gsub(/[^0-9]/,"",$NF); print}')
-    DWVER=$(echo $DWVER | awk -F '|' -v 'OFS=|' '{ gsub(/[^0-9]/,"",$NF); print}')
+    CURRVER=$(config_get Setup version | $AWK -F '|' -v 'OFS=|' '{ gsub(/[^0-9]/,"",$NF); print}')
+    DWVER=$(echo $DWVER | $AWK -F '|' -v 'OFS=|' '{ gsub(/[^0-9]/,"",$NF); print}')
     echo "Current version: $CURRVER"
     echo "Repo version: $DWVER"
     if [ "$DWVER" -gt "$CURRVER" ]; then
