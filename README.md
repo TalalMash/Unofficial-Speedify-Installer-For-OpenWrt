@@ -1,5 +1,6 @@
-## Unofficial Speedify Installer for OpenWrt (experimental)
-**Minimum Requirments:**
+# Unofficial Speedify Installer for OpenWrt (experimental)
+
+## Minimum Requirements
 
 - 64 bit Intel/AMD or 64-bit ARM or 32-bit ARM hard float
 - 512MB RAM
@@ -9,8 +10,9 @@
 - Internet connection
 - Familiarity with OpenWrt, else checkout [SmoothWAN](https://smoothwan.com)
 
-**Tested on:**
+## Tested devices
 
+*Officially verified:*
 - Official OpenWrt PC (23.05.2)
 - GL.iNet Slate AX & Flint 4.4.6 official firmware
   
@@ -20,8 +22,9 @@
 - Banana Pi BPI-R3 OpenWrt 23.05 
 - Nano Pi R6S FriendlyWrt 23.05.X
 
-Download the file from the releases section and follow the video:
+## Installation
 
+Download the `.ipk` file from the [Releases section](https://github.com/TalalMash/Unofficial-Speedify-Installer-For-OpenWrt/releases/latest) and follow the video below:
 
 https://github.com/TalalMash/Unofficial-Speedify-Installer-For-OpenWrt/assets/96490382/0c49dea6-e07f-4db8-8813-b6786d552da9
 
