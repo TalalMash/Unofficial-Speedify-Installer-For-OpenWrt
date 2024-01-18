@@ -4,8 +4,8 @@ view = config:section(NamedSection,"Setup", "config",  translate("Speedify Confi
 enabled = view:option(Flag, "enabled", "Enable", "Enables Speedify on device startup."); view.optional=false; view.rmempty = false;
 apt = view:option(Value, "apt", "Debian Repository URL:", "Default address last tested on Q1 2024."); view.optional=false; view.rmempty = false;
 auto = view:option(Flag, "autoupdate", "Update on boot:", "Update Speedify before starting."); view.optional=false; view.rmempty = false;
-upd = view:option(Button, "_update", "Trigger Install/Update", "Install Speedify or update and restart.")
-rst = view:option(Button, "_reset", "Trigger Reset", "Reset and restart Speedify.")
+upd = view:option(Button, "_update", "Install/Update", "Install Speedify or update and restart.")
+rst = view:option(Button, "_reset", "Reset", "Reset and restart Speedify.")
 genlog = view:option(Button, "_genlog", "Download Logs & Config", "Downloads Speedify log files and OpenWRT configuration/log files.")
 
 function upd.write()
