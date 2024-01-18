@@ -7,9 +7,12 @@ PKGS=/tmp/spdpkgs
 SED="busybox sed"
 AWK="busybox awk"
 
+nginx_pid=$(cat /tmp/nginxproxy.pid)
+
 config_load speedifyunofficial
 
 run_speedify (){
+   kill "$nginx_pid"
    killall -KILL speedify
    if [ $(uci get speedifyunofficial.Setup.enabled) == 0 ]; then
         exit 0
@@ -21,7 +24,8 @@ run_speedify (){
    nice -n -20 /usr/sbin/capsh --drop=cap_sys_nice --shell=/bin/sh -- -c './speedify -d logs &'
    sleep 2
    ./speedify_cli startupconnect on > /dev/null
-   nginx -c /usr/lib/speedifyunofficial/nginx.conf 2>&1 &
+   nginx -c /usr/lib/speedifyunofficial/nginx.conf &
+   echo $! > /tmp/nginxproxy.pid
 }
 
 parse_versions(){

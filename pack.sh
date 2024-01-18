@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VERSION="1.1"
+VERSION="1.2"
 
 pushd packages/ipkbuild/speedifyunofficial/control/
 rm ../control.tar.gz

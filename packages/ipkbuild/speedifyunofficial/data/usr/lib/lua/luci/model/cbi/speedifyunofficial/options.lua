@@ -27,7 +27,6 @@ function uninstall.write()
  luci.sys.call("/etc/init.d/speedifyunofficial stop")
  luci.sys.call("rm -rf /usr/share/speedify/* /usr/share/speedifyui/* /www/spdui/*")
  luci.sys.call("echo 'Speedify was manually uninstalled...' | tee /www/spdui/index.html | tee /tmp/speedifyunofficial.log &")
- luci.http.redirect("/cgi-bin/luci/admin/vpn/spdconf/logs")
 end
 
 return config

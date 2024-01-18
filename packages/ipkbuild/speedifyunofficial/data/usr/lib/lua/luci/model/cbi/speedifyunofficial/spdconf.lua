@@ -9,7 +9,7 @@ rst = view:option(Button, "_reset", "Trigger Reset", "Reset and restart Speedify
 genlog = view:option(Button, "_genlog", "Download Logs & Config", "Downloads Speedify log files and OpenWRT configuration/log files.")
 
 function upd.write()
-  luci.sys.call("echo 'Log Reset & Speedify Update/Install' > /tmp/speedifyunofficial.log && sh /usr/lib/speedifyunofficial/run.sh update >> /tmp/speedifyunofficial.log 2>&1 &")
+  luci.sys.call("echo 'Log Reset & Speedify Update/Install' > /tmp/speedifyunofficial.log && sh /usr/lib/speedifyunofficial/run.sh update >> /tmp/speedifyunofficial.log &")
   luci.http.redirect("/cgi-bin/luci/admin/vpn/spdconf/logs")
 end
 
