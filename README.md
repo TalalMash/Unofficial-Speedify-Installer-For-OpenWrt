@@ -28,3 +28,19 @@ Download the `.ipk` file from the [Releases section](https://github.com/TalalMas
 
 https://github.com/TalalMash/Unofficial-Speedify-Installer-For-OpenWrt/assets/96490382/0c49dea6-e07f-4db8-8813-b6786d552da9
 
+## Known issues & Workarounds
+
+### Generating logs
+The official **Help -> Generate Logs** button in Speedify UI doesn't work.
+
+Instead you need to:
+1. Open our custom Speedify Configuration menu from the OpenWrt Menu **VPN -> Speedify**
+2. Click the **Download Logs & Config** button
+
+### Restarting Speedify
+
+The official **Restart Speedify Service** in the Speedify UI doesn't work.
+
+Instead you need to:
+1. Open our custom Speedify Configuration menu from the OpenWrt Menu **VPN -> Speedify**
+2. Click the **Reset** button
