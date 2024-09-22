@@ -1,5 +1,7 @@
 # Unofficial Speedify Installer for OpenWrt (experimental)
 
+**Update: [Speedify now officially supports OpenWrt as of Q4 2024](https://support.speedify.com/article/918-openwrt)**
+
 ## Minimum Requirements
 
 - 64 bit Intel/AMD or 64-bit ARM or 32-bit ARM hard float
